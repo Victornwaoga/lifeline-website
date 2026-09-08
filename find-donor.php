@@ -215,9 +215,7 @@
                     <a href="become-donor.php" class="btn-primary">Become a Donor<span>→</span></a>
                 </div>
                 <div class="join-placeholder">
-                    <div class="placeholder-icon"></div>
-                    <strong>Donor Image </strong>
-                    <small>Replace with your image later</small>
+                     <img src="images/donatorr.jpg" alt="">
                 </div>
             </div>
         </div>

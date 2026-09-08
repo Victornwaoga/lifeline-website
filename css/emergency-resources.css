@@ -235,6 +235,20 @@ main {
     font-size: 0.75rem;
     font-weight: 900;
     letter-spacing: 1.2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 6s steps(20, end) backwards, blink-cursor 1s step-end infinite;
+}
+
+@keyframes typing {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+@keyframes blink-cursor {
+    from, to {border-color: transparent;}
+    50% {border-color: var(--red);}
 }
 
 
@@ -242,6 +256,18 @@ main {
     padding: 55px 0 45px;
     background: linear-gradient(145deg, #ffffff, #edf9ff, #ffffff);
     border-bottom: 1px solid #deedf3;
+    animation: slideFromLeft 1s ease-out forwards;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .resources-hero h1 {
