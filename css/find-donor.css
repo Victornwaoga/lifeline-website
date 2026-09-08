@@ -90,77 +90,46 @@ main {
 
 .header-container {
     min-height: 72px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
 .logo {
     display: inline-flex;
-
     align-items: center;
-
     gap: 9px;
-
     font-size: 1.3rem;
-
     font-weight: 800;
-
     letter-spacing: -0.04em;
 }
-
 
 .logo-icon {
     width: 38px;
     height: 42px;
-
     display: grid;
-
     place-items: center;
-
     background: var(--red);
-
-    border-radius:
-        50% 50% 50% 10%;
-
+    border-radius: 50% 50% 50% 10%;
     transform: rotate(-45deg);
-
-    box-shadow:
-        0 7px 18px
-        rgba(200, 29, 37, 0.22);
+    box-shadow:0 7px 18pxrgba(200, 29, 37, 0.22);
 }
-
 
 .logo-drop {
     color: white;
-
     font-size: 17px;
-
     transform: rotate(45deg);
 }
-
 
 .logo-text {
     color: var(--navy);
 }
 
-
 .logo-text span {
     color: var(--red);
 }
 
-
-/* =========================================================
-   MENU BUTTON
-========================================================= */
+/* MENU BUTTON */
 
 .menu-button {
     width: 44px;
@@ -175,7 +144,6 @@ main {
     cursor: pointer;
 }
 
-
 .menu-button span {
     width: 25px;
     height: 3px;
@@ -184,9 +152,7 @@ main {
     transition: 0.25s ease;
 }
 
-
 /* Hamburger animation */
-
 .menu-button.menu-open span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -196,63 +162,35 @@ main {
     opacity: 0;
 }
 
-
 .menu-button.menu-open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 .main-nav {
     display: none;
 }
 
-
 .main-nav.nav-open {
     position: absolute;
-
     top: 72px;
-
     left: 0;
     right: 0;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
-
-    padding:
-        15px
-        16px
-        20px;
-
-    background:
-        rgba(255, 255, 255, 0.98);
-
-    border-bottom:
-        1px solid var(--border);
-
+    padding: 15px 16px 20px;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom:1px solid var(--border);
     box-shadow: var(--shadow);
 }
 
 
 .main-nav.nav-open a {
     width: 100%;
-
-    padding:
-        14px
-        15px;
-
+    padding: 14px 15px;
     border-radius: 10px;
-
     color: var(--navy);
-
     font-size: 0.9rem;
-
     font-weight: 700;
 }
 
@@ -265,31 +203,20 @@ main {
 }
 
 
-/* =========================================================
-   PAGE HERO
-========================================================= */
+/*  PAGE HERO */
 
 .page-hero {
-    padding:
-        65px
-        0
-        50px;
+    padding: 65px 0 50px;
 }
 
 
 .eyebrow {
     display: inline-block;
-
     align-items: center;
-
     gap: 8px;
-
     color: var(--red);
-
     font-size: 0.72rem;
-
     font-weight: 800;
-
     letter-spacing: 0.1em;
     text-transform: uppercase;
     overflow: hidden;
@@ -409,630 +336,367 @@ main {
 
 .search-heading {
     display: flex;
-
     align-items: flex-start;
-
     gap: 14px;
 }
 
 
 .search-icon {
     flex: 0 0 auto;
-
     width: 48px;
     height: 48px;
-
     display: grid;
-
     place-items: center;
-
     background: var(--blue-light);
-
     border-radius: 13px;
-
     font-size: 1.25rem;
 }
 
 
 .section-label {
     display: inline-block;
-
     color: var(--red);
-
     font-size: 0.7rem;
-
     font-weight: 850;
-
     letter-spacing: 0.1em;
-
     text-transform: uppercase;
 }
 
-
 .search-heading h2 {
     margin-top: 5px;
-
     color: var(--navy);
-
     font-size: 1.45rem;
-
     line-height: 1.2;
 }
 
-
 .search-heading p {
     margin-top: 7px;
-
     color: var(--muted);
-
     font-size: 0.83rem;
 }
-
-
-/* =========================================================
-   SEARCH FORM
-========================================================= */
 
 .donor-search-form {
     margin-top: 28px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 18px;
 }
 
-
 .form-group {
     display: flex;
-
     flex-direction: column;
-
     gap: 8px;
 }
 
-
 .form-group label {
     color: var(--navy);
-
     font-size: 0.83rem;
-
     font-weight: 750;
 }
-
 
 .form-group select,
 .form-group input {
     width: 100%;
-
     min-height: 54px;
-
-    padding:
-        12px
-        14px;
-
+    padding: 12px 14px;
     color: var(--navy);
-
     background: white;
-
-    border:
-        1px solid #d0d5dd;
-
+    border: 1px solid #d0d5dd;
     border-radius: 11px;
-
     outline: none;
-
-    transition:
-        border 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }
-
 
 .form-group select:focus,
 .form-group input:focus {
     border-color: var(--red);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(200, 29, 37, 0.1);
+    box-shadow: 0 0 0 3px rgba(200, 29, 37, 0.1);
 }
-
 
 .input-wrapper {
     position: relative;
 }
 
-
 .input-wrapper .input-icon {
     position: absolute;
-
     top: 50%;
-
     left: 15px;
-
     transform: translateY(-50%);
-
     pointer-events: none;
 }
-
 
 .input-wrapper input {
     padding-left: 43px;
 }
 
-
 .search-button {
     min-height: 54px;
-
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 9px;
-
-    padding:
-        13px
-        20px;
-
+    padding: 13px 20px;
     border: 0;
-
     border-radius: 11px;
-
     color: white;
-
     background: var(--red);
-
     font-weight: 800;
-
-    box-shadow:
-        0 9px 22px
-        rgba(200, 29, 37, 0.18);
+    box-shadow: 0 9px 22px rgba(200, 29, 37, 0.18);
 
     transition:
         transform 0.2s ease,
         background 0.2s ease;
 }
 
-
 .search-button:hover {
     background: var(--red-dark);
-
     transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   RESULTS
-========================================================= */
-
 .results-section {
-    padding:
-        10px
-        0
-        80px;
+    padding: 10px 0 80px;
 }
-
 
 .results-header {
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
-
     margin-bottom: 25px;
 }
 
-
 .results-header h2 {
     margin-top: 5px;
-
     color: var(--navy);
-
     font-size: 1.8rem;
-
     letter-spacing: -0.035em;
 }
 
-
 .results-count {
     align-self: flex-start;
-
-    padding:
-        7px
-        11px;
-
+    padding: 7px 11px;
     color: var(--red);
-
     background: var(--red-light);
-
     border-radius: 30px;
-
     font-size: 0.75rem;
-
     font-weight: 800;
 }
 
-
-/* =========================================================
-   DONOR GRID
-========================================================= */
-
 .donor-grid {
     display: grid;
-
     grid-template-columns: 1fr;
-
     gap: 16px;
 }
 
-
-/* =========================================================
-   DONOR CARD
-========================================================= */
-
 .donor-card {
     padding: 23px;
-
-    background:
-        rgba(255, 255, 255, 0.94);
-
-    border:
-        1px solid var(--border);
-
+    background:  rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-
     box-shadow: var(--shadow-sm);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 
 .donor-card:hover {
     transform: translateY(-3px);
-
     box-shadow: var(--shadow);
 }
 
-
 .donor-card-top {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
-
 
 .donor-avatar {
     width: 52px;
     height: 52px;
-
     display: grid;
-
     place-items: center;
-
     color: var(--red);
-
     background: var(--red-light);
-
     border-radius: 50%;
-
     font-weight: 850;
 }
-
 
 .blood-badge {
     min-width: 55px;
     height: 55px;
-
     display: grid;
-
     place-items: center;
-
     color: white;
-
     background: var(--red);
-
     border-radius: 14px;
-
     font-size: 1.25rem;
-
     font-weight: 900;
 }
-
 
 .blood-badge span {
     font-size: 0.78rem;
 }
 
-
 .blood-a {
     background: var(--blue);
 }
-
 
 .blood-b {
     background: #7c3aed;
 }
 
-
 .blood-ab {
     background: #0891b2;
 }
 
-
 .donor-card h3 {
     margin-top: 18px;
-
     color: var(--navy);
-
     font-size: 1.15rem;
 }
 
-
 .donor-location {
     margin-top: 4px;
-
     color: var(--muted);
-
     font-size: 0.84rem;
 }
 
-
 .donor-status {
     margin-top: 15px;
-
     display: inline-flex;
-
     align-items: center;
-
     gap: 7px;
-
     color: #475467;
-
     font-size: 0.76rem;
-
     font-weight: 700;
 }
-
 
 .status-dot {
     width: 8px;
     height: 8px;
-
     background: #16a34a;
-
     border-radius: 50%;
 }
 
-
 .contact-button {
     width: 100%;
-
     min-height: 47px;
-
     margin-top: 18px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 8px;
-
     color: var(--red);
-
     background: white;
-
-    border:
-        1px solid #f0b5b8;
-
+    border: 1px solid #f0b5b8;
     border-radius: 10px;
-
     font-size: 0.82rem;
-
     font-weight: 800;
 }
-
 
 .contact-button:hover {
     background: var(--red-light);
 }
 
-
-/* =========================================================
-   NO RESULTS
-========================================================= */
-
 .no-results {
     display: none;
-
     padding: 50px 20px;
-
     text-align: center;
-
     background: white;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: var(--radius);
 }
-
 
 .no-results-icon {
     font-size: 2rem;
 }
 
-
 .no-results h3 {
     margin-top: 12px;
-
     color: var(--navy);
 }
 
-
 .no-results p {
     margin-top: 6px;
-
     color: var(--muted);
-
     font-size: 0.88rem;
 }
 
-
-/* =========================================================
-   DIRECTORY NOTICE
-========================================================= */
+/* DIRECTORY NOTICE */
 
 .directory-notice {
     margin-top: 25px;
-
     padding: 17px;
-
     display: flex;
-
     align-items: flex-start;
-
     gap: 10px;
-
     background: #f8fafc;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 12px;
 }
 
-
 .directory-notice > span {
     color: var(--blue);
-
     font-size: 1rem;
 }
 
-
 .directory-notice p {
     color: var(--muted);
-
     font-size: 0.72rem;
-
     line-height: 1.55;
 }
 
-
-/* =========================================================
-   JOIN SECTION
-========================================================= */
-
-.join-section {
-    padding:
-        0
-        0
-        80px;
+.join-section { 
+    padding: 0 0 80px;
 }
-
 
 .join-card {
     padding: 30px 24px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #9f151c,
-            #d92b35
-        );
-
+    background: linear-gradient( 135deg, #9f151c, #d92b35);
     border-radius: var(--radius-lg);
-
     color: white;
-
-    box-shadow:
-        0 20px 45px
-        rgba(159, 21, 28, 0.2);
+    box-shadow: 0 20px 45px rgba(159, 21, 28, 0.2);
 }
-
 
 .join-card .section-label {
     color: #ffd9db;
 }
 
-
 .join-card h2 {
     margin-top: 10px;
-
-    font-size:
-        clamp(
-            2rem,
-            8vw,
-            3.3rem
-        );
-
+    font-size: clamp( 2rem, 8vw, 3.3rem);
     line-height: 1.06;
-
     letter-spacing: -0.045em;
 }
 
-
 .join-card h2 span {
     display: block;
-
     color: #ffe5e7;
 }
 
-
 .join-card p {
     max-width: 580px;
-
     margin-top: 15px;
-
     color: #ffecef;
 }
 
-
 .btn-primary {
     margin-top: 23px;
-
     min-height: 52px;
-
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 10px;
-
-    padding:
-        13px
-        20px;
-
+    padding: 13px 20px;
     color: var(--red);
-
     background: white;
-
     border-radius: 11px;
-
     font-weight: 800;
 }
 
 .btn-primary:hover {
     background-color: white;
 }
-
 
 .join-placeholder {
     min-height: 230px;
@@ -1070,158 +734,100 @@ main {
     font-size: 0.72rem;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* Footer */
 
 .site-footer {
-    padding:
-        55px
-        0
-        25px;
-
+    padding: 55px 0 25px;
     color: #d8e0ea;
-
     background: #101828;
 }
 
-
 .footer-top {
     display: flex;
-
     flex-direction: column;
-
     gap: 35px;
 }
-
 
 .footer-logo .logo-text {
     color: white;
 }
 
-
 .footer-brand p {
     max-width: 300px;
 
     margin-top: 12px;
-
     color: #98a2b3;
-
     font-size: 0.84rem;
 }
-
 
 .footer-links {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 25px;
 }
 
-
 .footer-links div {
     display: flex;
-
     flex-direction: column;
-
     gap: 9px;
 }
 
-
 .footer-links h3 {
     margin-bottom: 3px;
-
     color: white;
-
     font-size: 0.84rem;
 }
 
-
 .footer-links a {
     color: #98a2b3;
-
     font-size: 0.77rem;
 }
-
 
 .footer-links a:hover {
     color: white;
 }
 
-
 .footer-bottom {
     margin-top: 35px;
-
     padding-top: 22px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 7px;
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.1);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #667085;
-
     font-size: 0.7rem;
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
 @media (min-width: 600px) {
-
     .container {
         width:
-            min(
-                calc(100% - 48px),
-                var(--container)
-            );
+            min( calc(100% - 48px), var(--container));
     }
-
 
     .donor-search-form {
         display: grid;
-
-        grid-template-columns:
-            0.7fr
-            1.3fr;
-
+        grid-template-columns: 0.7fr 1.3fr;
         align-items: end;
     }
-
 
     .search-button {
         grid-column: 1 / -1;
     }
-
 
     .donor-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-
     .results-header {
         flex-direction: row;
-
         align-items: end;
-
         justify-content: space-between;
     }
-
 
     .results-count {
         align-self: auto;
     }
-
 
     .footer-top {
         flex-direction: row;
@@ -1232,12 +838,8 @@ main {
 }
 
 
-/* =========================================================
-   DESKTOP
-========================================================= */
-
+/* DESKTOP */
 @media (min-width: 900px) {
-
     .container {
         width:
             min(
@@ -1246,32 +848,21 @@ main {
             );
     }
 
-
     .menu-button {
         display: none;
     }
 
-
     .main-nav {
         display: flex;
-
         align-items: center;
-
         gap: 5px;
     }
 
-
     .main-nav a {
-        padding:
-            9px
-            11px;
-
+        padding: 9px 11px;
         color: #475467;
-
         border-radius: 8px;
-
         font-size: 0.78rem;
-
         font-weight: 700;
     }
 
@@ -1280,78 +871,50 @@ main {
         background: #edf8fc;
     }
     
-    
     .main-nav a.active {
         color: var(--red);
-
         background: var(--red-light);
     }
 
-
     .page-hero {
-        padding:
-            90px
-            0
-            65px;
+        padding: 90px 0 65px;
     }
-
 
     .search-box {
         padding: 35px;
     }
 
-
     .donor-search-form {
-        grid-template-columns:
-            0.75fr
-            1.4fr
-            auto;
+        grid-template-columns:  0.75fr 1.4fr auto;
     }
-
 
     .search-button {
         grid-column: auto;
-
         min-width: 190px;
     }
 
-
     .donor-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
-
 
     .join-card {
         padding: 50px;
-
         display: grid;
-
-        grid-template-columns:
-            1fr
-            0.65fr;
-
+        grid-template-columns: 1fr 0.65fr;
         align-items: center;
-
         gap: 50px;
     }
 
-
     .footer-bottom {
         flex-direction: row;
-
         justify-content: space-between;
     }
 
 }
 
 
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
+/* LARGE DESKTOP */
 @media (min-width: 1200px) {
-
     .page-hero h1 {
         font-size: 4.8rem;
     }
@@ -1363,25 +926,18 @@ main {
 }
 
 
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
+/*  ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
-
     html {
         scroll-behavior: auto;
     }
-
 
     *,
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
-
         animation-iteration-count: 1 !important;
-
         transition-duration: 0.01ms !important;
     }
-
 }
