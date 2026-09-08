@@ -1,0 +1,26 @@
+# --- XAMPP AND PHP RULES ---
+/vendor/
+composer.phar
+.phpunit.result.cache
+
+# --- pgAdmin and Database Rules ---
+# Ignore local database backups and dumps
+*.sql
+*.backup
+*.dump
+.pgadmin/
+
+
+# --- Environment configuration ---
+# Ignore files holding database password and connections
+.env
+.env.local
+.env.*.local
+config.local.php
+
+
+# --- System and editor files ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f7fcff;
+    color: #17212b;
+    line-height: 1.3;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.3;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:root {
+    --red: #c81d25;
+    --red-dark: #9f151c;
+    --red-light: #fff1f2;
+    --blue: #1d4ed8;
+    --blue-dark: #173f9f;
+    --blue-light: #eff6ff;
+    --navy: #101828;
+    --text: #172033;
+    --muted: #667085;
+    --white: #ffffff;
+    --border: #e4e7ec;
+    --surface: #f8fafc;
+    --surface-blue: #f0f8ff;
+    --shadow-sm: 0 4px 16px rgba(16, 24, 40, 0.06);
+    --shadow:  0 12px 35px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0 20px 55px rgba(16, 24, 40, 0.12);
+    --radius-sm: 10px;
+    --radius: 18px;
+    --radius-lg: 28px;
+    --container: 1200px;
+}
+
+.container {
+    width: min( calc(100% - 32px), var(--container));
+    margin-inline: auto;
+}
+
+main {
+    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-dark) 50%, black 75%, var(--blue-dark) 100%);
+    background-size: 300% 300%;
+    animation: medicalBackground 14s ease-in-out infinite;
+}
+
+@keyframes medicalBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =========================================================
+   2. GLOBAL CONTAINER
+========================================================= */
+
+.container {
+    width: min(92%, 1100px);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.site-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid #e3edf2;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.header-container {
+    width: min(92%, 1100px);
+    min-height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf7ff;
+    border-radius: 50%;
+    font-size: 21px;
+}
+
+.logo-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #b91c2c;
+    letter-spacing: -0.5px;
+}
+
+.menu-button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    border-radius: 5px;
+    background: #17212b;
+    transition: 0.25s ease;
+}
+
+
+/* Hamburger animation */
+
+.menu-button.menu-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+
+.menu-button.menu-open span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-button.menu-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.main-nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    padding: 12px 4%;
+    background: #ffffff;
+    border-bottom: 1px solid #e3edf2;
+    box-shadow: 0 10px 25px rgba(23, 33, 43, 0.07);
+}
+
+.main-nav.nav-open {
+    display: flex;
+}
+
+.main-nav a {
+    padding: 14px 8px;
+    color: #35424c;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-bottom: 1px solid #edf2f5;
+}
+
+.main-nav a:last-child {
+    border-bottom: none;
+}
+
+.main-nav a.active {
+    color: #c51d2d;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #c51d2d;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+
+.resources-hero {
+    padding: 55px 0 45px;
+    background: linear-gradient(145deg, #ffffff, #edf9ff, #ffffff);
+    border-bottom: 1px solid #deedf3;
+}
+
+.resources-hero h1 {
+    max-width: 700px;
+    margin-bottom: 18px;
+    font-size: clamp(2.1rem, 9vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.resources-hero h1 span {
+    color: #c51d2d;
+}
+
+.resources-hero > .container > p {
+    max-width: 650px;
+    margin-bottom: 25px;
+    color: #53616b;
+    font-size: 1rem;
+}
+
+.hero-warning {
+    max-width: 650px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #fff7e8;
+    border: 1px solid #f4dfb5;
+    border-left: 4px solid #e6a91a;
+    border-radius: 10px;
+}
+
+.hero-warning > span {
+    flex-shrink: 0;
+    font-size: 1.15rem;
+}
+
+.hero-warning p {
+    color: #604d27;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    margin-bottom: 8px;
+    font-size: clamp(1.7rem, 6vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.section-heading p {
+    max-width: 650px;
+    color: #63717b;
+    font-size: 0.95rem;
+}
+
+.quick-actions {
+    padding: 55px 0;
+    background: #ffffff;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.action-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 14px;
+    min-height: 105px;
+    padding: 18px;
+    background: #f9fdff;
+    border: 1px solid #dcecf2;
+    border-radius: 14px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.action-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #c7e4ee;
+
+    box-shadow:
+        0 10px 25px rgba(27, 78, 96, 0.08);
+}
+
+
+.action-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #eaf7ff;
+
+    font-size: 1.4rem;
+}
+
+
+.action-card h3 {
+    margin-bottom: 3px;
+
+    font-size: 1rem;
+}
+
+
+.action-card p {
+    color: #6a7881;
+
+    font-size: 0.82rem;
+
+    line-height: 1.45;
+}
+
+
+.action-arrow {
+    color: #c51d2d;
+
+    font-size: 1.2rem;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   12. RESOURCE SECTIONS
+========================================================= */
+
+.resource-section {
+    padding: 55px 0;
+}
+
+
+.alternate-section {
+    background: #edf9ff;
+
+    border-top: 1px solid #dceff5;
+
+    border-bottom: 1px solid #dceff5;
+}
+
+
+/* =========================================================
+   13. RESOURCE SEARCH
+========================================================= */
+
+.resource-search {
+    margin-bottom: 25px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dcecf2;
+
+    border-radius: 12px;
+}
+
+
+.resource-search label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #35424c;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+}
+
+
+.resource-search input {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 11px 13px;
+
+    border: 1px solid #ccdce3;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #17212b;
+
+    font-size: 0.95rem;
+}
+
+
+.resource-search input::placeholder {
+    color: #8a969d;
+}
+
+
+.resource-search input:focus {
+    border-color: #9dcfdf;
+
+    box-shadow:
+        0 0 0 3px rgba(157, 207, 223, 0.2);
+}
+
+
+/* =========================================================
+   14. RESOURCE LIST
+========================================================= */
+
+.resource-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   15. RESOURCE CARD
+========================================================= */
+
+.resource-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dfecef;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(23, 33, 43, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.resource-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(23, 33, 43, 0.08);
+}
+
+
+/* =========================================================
+   16. IMAGE PLACEHOLDER
+========================================================= */
+
+.resource-image {
+    width: 100%;
+
+    min-height: 190px;
+}
+
+
+.image-placeholder {
+    width: 100%;
+    min-height: 190px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf7ff,
+            #f8fdff
+        );
+
+    color: #65818d;
+
+    border-bottom: 1px solid #e1edf1;
+}
+
+
+.image-placeholder span {
+    font-size: 3rem;
+}
+
+
+.image-placeholder p {
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   17. RESOURCE CONTENT
+========================================================= */
+
+.resource-content {
+    padding: 21px;
+}
+
+
+.resource-type {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #edf8fc;
+
+    color: #327083;
+
+    font-size: 0.65rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.7px;
+}
+
+
+.resource-content h3 {
+    margin-bottom: 7px;
+
+    font-size: 1.2rem;
+
+    line-height: 1.25;
+}
+
+
+.resource-location {
+    margin-bottom: 12px;
+
+    color: #b91c2c;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+
+.resource-description {
+    margin-bottom: 14px;
+
+    color: #687780;
+
+    font-size: 0.88rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   18. RESOURCE META
+========================================================= */
+
+.resource-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 17px;
+}
+
+
+.resource-meta span {
+    padding: 6px 9px;
+
+    border-radius: 6px;
+
+    background: #f1f7f9;
+
+    color: #52646d;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   19. RESOURCE ACTIONS
+========================================================= */
+
+.resource-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+}
+
+
+.call-button,
+.directions-button {
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.call-button {
+    background: #c51d2d;
+
+    color: #ffffff;
+}
+
+
+.call-button:hover {
+    background: #a91624;
+
+    transform: translateY(-1px);
+}
+
+
+.directions-button {
+    background: #edf8fc;
+
+    color: #286476;
+
+    border: 1px solid #d3e9f0;
+}
+
+
+.directions-button:hover {
+    background: #e2f4fa;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   20. BLOOD RESOURCE WARNING
+========================================================= */
+
+.resource-warning {
+    margin: 16px 0;
+
+    padding: 12px;
+
+    background: #fff7e8;
+
+    border: 1px solid #f1dfbb;
+
+    border-radius: 8px;
+
+    color: #69552d;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   21. AMBULANCE BANNER
+========================================================= */
+
+.emergency-banner {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+
+    padding: 18px;
+
+    background: #fff0f1;
+
+    border: 1px solid #f3cdd1;
+
+    border-left: 5px solid #c51d2d;
+
+    border-radius: 12px;
+}
+
+
+.emergency-banner-icon {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 1.4rem;
+}
+
+
+.emergency-banner h3 {
+    margin-bottom: 5px;
+
+    color: #9e1725;
+
+    font-size: 1rem;
+}
+
+
+.emergency-banner p {
+    color: #71454a;
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   22. FULL-WIDTH AMBULANCE BUTTON
+========================================================= */
+
+.emergency-call {
+    width: 100%;
+}
+
+
+/* =========================================================
+   23. EMERGENCY NUMBERS SECTION
+========================================================= */
+
+.emergency-numbers {
+    padding: 55px 0;
+
+    background: #15232d;
+
+    color: #ffffff;
+}
+
+
+.emergency-numbers .section-label {
+    color: #ffb7bd;
+}
+
+
+.emergency-numbers .section-heading h2 {
+    color: #ffffff;
+}
+
+
+.emergency-numbers .section-heading p {
+    color: #b9c8cf;
+}
+
+
+/* =========================================================
+   24. NUMBERS LIST
+========================================================= */
+
+.numbers-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.number-card {
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    background: #1d303b;
+
+    border: 1px solid #2c4653;
+
+    border-radius: 12px;
+}
+
+
+.number-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #28404c;
+
+    border-radius: 9px;
+
+    font-size: 1.1rem;
+}
+
+
+.number-info h3 {
+    margin-bottom: 2px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+}
+
+
+.number-info p {
+    color: #aebfc7;
+
+    font-size: 0.72rem;
+
+    line-height: 1.35;
+}
+
+
+.number-button {
+    min-width: 55px;
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    background: #c51d2d;
+
+    color: #ffffff;
+
+    font-size: 0.82rem;
+
+    font-weight: 900;
+}
+
+
+.number-button:hover {
+    background: #a91624;
+}
+
+
+/* =========================================================
+   25. SAFETY SECTION
+========================================================= */
+
+.safety-section {
+    padding: 45px 0;
+
+    background: #f7fcff;
+}
+
+
+.safety-box {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2edf1;
+
+    border-left: 4px solid #e0a321;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px rgba(23, 33, 43, 0.04);
+}
+
+
+.safety-icon {
+    flex-shrink: 0;
+
+    font-size: 1.4rem;
+}
+
+
+.safety-box h2 {
+    margin-bottom: 8px;
+
+    font-size: 1.05rem;
+}
+
+
+.safety-box p {
+    margin-bottom: 9px;
+
+    color: #65737c;
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+}
+
+
+.safety-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   26. FOOTER
+========================================================= */
+
+.site-footer {
+    padding: 35px 0;
+
+    background: #101c23;
+
+    color: #dce6eb;
+}
+
+
+.footer-main {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+.footer-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+
+.footer-logo span {
+    font-size: 1.4rem;
+}
+
+
+.footer-logo strong {
+    font-size: 1.2rem;
+}
+
+
+.footer-brand p {
+    max-width: 350px;
+
+    color: #a9bac2;
+
+    font-size: 0.8rem;
+}
+
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-links h3 {
+    margin-bottom: 4px;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.footer-links a {
+    color: #98a2b3;
+    font-size: 0.78rem;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #667085;
+    font-size: 0.72rem;
+}
+
+
+/* .footer-bottom p {
+    color: #84969f;
+
+    font-size: 0.7rem;
+} */
+
+
+/* =========================================================
+   27. TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .resources-hero {
+        padding: 75px 0 60px;
+    }
+
+
+    .resources-hero > .container > p {
+        font-size: 1.05rem;
+    }
+
+
+    .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .resource-card {
+        display: grid;
+
+        grid-template-columns: 38% 62%;
+    }
+
+
+    .resource-image,
+    .image-placeholder {
+        min-height: 100%;
+    }
+
+
+    .resource-image {
+        height: 100%;
+    }
+
+
+    .resource-content {
+        padding: 25px;
+    }
+
+
+    .resource-actions {
+        max-width: 400px;
+    }
+
+
+    .number-card {
+        padding: 18px 20px;
+    }
+
+
+    .footer-main {
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+    }
+
+
+    .footer-links {
+        display: grid;
+
+        grid-template-columns: repeat(2, auto);
+
+        column-gap: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   28. DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    /* ---------- HEADER ---------- */
+
+    .menu-button {
+        display: none;
+    }
+
+
+    .main-nav {
+        position: static;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 5px;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+    }
+
+
+    .main-nav a {
+        padding: 9px 11px;
+
+        border: none;
+
+        border-radius: 7px;
+
+        font-size: 0.85rem;
+    }
+
+
+    .main-nav a:hover {
+        background: #edf8fc;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .resources-hero {
+        padding: 95px 0 80px;
+    }
+
+
+    /* ---------- QUICK ACTIONS ---------- */
+
+    .quick-actions {
+        padding: 75px 0;
+    }
+
+
+    .action-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .action-card {
+        grid-template-columns: 1fr;
+
+        align-items: start;
+
+        min-height: 200px;
+    }
+
+
+    .action-arrow {
+        margin-top: auto;
+    }
+
+
+    /* ---------- RESOURCE SECTIONS ---------- */
+
+    .resource-section {
+        padding: 80px 0;
+    }
+
+
+    .resource-list {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+    }
+
+
+    .resource-card {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    .resource-image,
+    .image-placeholder {
+        min-height: 210px;
+    }
+
+
+    .resource-image {
+        height: 210px;
+    }
+
+
+    .resource-content {
+        flex: 1;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    .resource-actions {
+        margin-top: auto;
+
+        padding-top: 18px;
+    }
+
+
+    /* ---------- NUMBERS ---------- */
+
+    .numbers-list {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 16px;
+    }
+
+
+    .number-card {
+        grid-template-columns: auto 1fr;
+
+        align-items: start;
+    }
+
+
+    .number-button {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        margin-top: 8px;
+    }
+
+
+    /* ---------- SAFETY ---------- */
+
+    .safety-section {
+        padding: 65px 0;
+    }
+
+}
+
+
+/* =========================================================
+   29. LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .resource-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .resource-card {
+        min-height: 100%;
+    }
+
+
+    .resource-content {
+        padding: 25px;
+    }
+
+    .main-nav a {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   30. LANDSCAPE PHONE PROTECTION
+=========================================================
+
+   IMPORTANT:
+
+   A phone turned sideways should NOT suddenly become
+   a tiny desktop layout.
+
+   We deliberately keep the mobile structure.
+
+========================================================= */
+
+@media (
+    max-height: 500px
+) and (
+    orientation: landscape
+) {
+
+    /* ---------- HEADER ---------- */
+
+    .header-container {
+        min-height: 62px;
+    }
+
+
+    .main-nav {
+        top: 62px;
+
+        max-height: calc(100vh - 62px);
+
+        overflow-y: auto;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .resources-hero {
+        padding: 35px 0 30px;
+    }
+
+
+    .resources-hero h1 {
+        font-size: 2rem;
+
+        max-width: 700px;
+    }
+
+
+    .resources-hero > .container > p {
+        max-width: 700px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* ---------- SECTIONS ---------- */
+
+    .quick-actions,
+    .resource-section,
+    .emergency-numbers {
+        padding: 40px 0;
+    }
+
+
+    /* ---------- QUICK ACTIONS ---------- */
+
+    .action-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    /* ---------- RESOURCE CARDS ---------- */
+
+    .resource-list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .resource-card {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    .resource-image,
+    .image-placeholder {
+        min-height: 160px;
+    }
+
+
+    /* ---------- NUMBERS ---------- */
+
+    .numbers-list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-main {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   31. VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .container {
+        width: 94%;
+    }
+
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+
+    .resources-hero h1 {
+        font-size: 1.9rem;
+    }
+
+
+    .action-card {
+        padding: 15px;
+
+        gap: 10px;
+    }
+
+
+    .action-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 1.2rem;
+    }
+
+
+    .resource-content {
+        padding: 18px;
+    }
+
+
+    .resource-actions {
+        grid-template-columns: 1fr;
+    }
+
+
+    .number-card {
+        grid-template-columns: auto 1fr;
+
+        align-items: start;
+    }
+
+
+    .number-button {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        margin-top: 4px;
+    }
+
+}
+
+
+/* =========================================================
+   32. ACCESSIBILITY - FOCUS
+========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #8bc9dc;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   33. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}

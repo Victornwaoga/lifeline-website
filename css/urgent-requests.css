@@ -1,0 +1,1100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f7fcff;
+    color: #17212b;
+    line-height: 1.3;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.3;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:root {
+    --red: #c81d25;
+    --red-dark: #9f151c;
+    --red-light: #fff1f2;
+    --blue: #1d4ed8;
+    --blue-dark: #173f9f;
+    --blue-light: #eff6ff;
+    --navy: #101828;
+    --text: #172033;
+    --muted: #667085;
+    --white: #ffffff;
+    --border: #e4e7ec;
+    --surface: #f8fafc;
+    --surface-blue: #f0f8ff;
+    --shadow-sm: 0 4px 16px rgba(16, 24, 40, 0.06);
+    --shadow:  0 12px 35px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0 20px 55px rgba(16, 24, 40, 0.12);
+    --radius-sm: 10px;
+    --radius: 18px;
+    --radius-lg: 28px;
+    --container: 1200px;
+}
+
+.container {
+    width: min( calc(100% - 32px), var(--container));
+    margin-inline: auto;
+}
+
+main {
+    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-dark) 50%, black 75%, var(--blue-dark) 100%);
+    background-size: 300% 300%;
+    animation: medicalBackground 14s ease-in-out infinite;
+}
+
+@keyframes medicalBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================================
+   2. GLOBAL CONTAINER
+========================================================= */
+
+.container {
+    width: min(92%, 1100px);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.site-header {
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #e5eef3;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.header-container {
+    width: min(92%, 1100px);
+    margin: 0 auto;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   4. LOGO
+========================================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf7ff;
+    border-radius: 50%;
+
+    font-size: 21px;
+}
+
+
+.logo-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #b91c2c;
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   5. HAMBURGER
+========================================================= */
+
+.menu-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+}
+
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+
+    background: #17212b;
+    border-radius: 5px;
+
+    transition: 0.25s ease;
+}
+
+
+/* Hamburger animation */
+
+.menu-button.menu-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+
+.menu-button.menu-open span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-button.menu-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   6. MOBILE NAVIGATION
+========================================================= */
+
+.main-nav {
+    position: absolute;
+
+    top: 70px;
+    left: 0;
+    right: 0;
+
+    background: white;
+
+    display: none;
+    flex-direction: column;
+
+    border-bottom: 1px solid #e5eef3;
+
+    padding: 12px 4%;
+}
+
+
+.main-nav.nav-open {
+    display: flex;
+}
+
+
+.main-nav a {
+    padding: 14px 8px;
+
+    font-weight: 600;
+
+    color: #35424c;
+
+    border-bottom: 1px solid #edf2f5;
+}
+
+
+.main-nav a:last-child {
+    border-bottom: none;
+}
+
+
+.main-nav a.active {
+    color: #c81e2c;
+}
+
+
+/* =========================================================
+   7. REQUEST HERO
+========================================================= */
+
+.request-hero {
+    padding: 55px 0 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #edf9ff,
+            #ffffff
+        );
+
+    border-bottom: 1px solid #e4f0f5;
+    animation: slideFromLeft 1s ease-out forwards;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.section-label {
+    display: inline-block;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #c51d2d;
+
+    margin-bottom: 12px;
+}
+
+
+.request-hero h1 {
+    font-size: clamp(2rem, 9vw, 3.8rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    max-width: 700px;
+
+    margin-bottom: 18px;
+}
+
+
+.request-hero h1 span {
+    color: #c51d2d;
+}
+
+
+.request-hero p {
+    font-size: 1rem;
+
+    max-width: 650px;
+
+    color: #53616b;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   8. PRIMARY BUTTON
+========================================================= */
+
+.primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 52px;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    background: #c81e2c;
+    color: white;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(200, 30, 44, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(200, 30, 44, 0.25);
+}
+
+
+.primary-button span {
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   9. REQUEST BOARD
+========================================================= */
+
+.request-board {
+    padding: 55px 0;
+}
+
+
+.board-header {
+    margin-bottom: 28px;
+}
+
+
+.board-header h2 {
+    font-size: 1.8rem;
+
+    line-height: 1.2;
+
+    margin-top: 3px;
+}
+
+
+.request-count {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #edf8fd;
+
+    color: #35606e;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   10. REQUEST LIST
+========================================================= */
+
+.request-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   11. REQUEST CARD
+========================================================= */
+
+.request-card {
+    background: white;
+
+    border: 1px solid #e3edf1;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 6px 20px rgba(23, 33, 43, 0.05);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Red urgency line */
+
+.request-card.urgent::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #d51f32;
+}
+
+
+/* =========================================================
+   12. CARD TOP
+========================================================= */
+
+.request-card-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+.urgency-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #fff0f1;
+
+    color: #c51d2d;
+
+    font-size: 0.68rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+}
+
+
+.request-time {
+    color: #77838c;
+
+    font-size: 0.72rem;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   13. BLOOD REQUEST HEADER
+========================================================= */
+
+.blood-request {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+.blood-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0f1;
+
+    color: #c51d2d;
+
+    font-size: 1.15rem;
+
+    font-weight: 900;
+}
+
+
+.blood-request h3 {
+    font-size: 1.25rem;
+
+    line-height: 1.2;
+
+    margin-bottom: 4px;
+}
+
+
+.blood-request p {
+    color: #687680;
+
+    font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   14. REQUEST DETAILS
+========================================================= */
+
+.request-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 16px 0;
+
+    border-top: 1px solid #edf2f4;
+    border-bottom: 1px solid #edf2f4;
+
+    margin-bottom: 18px;
+}
+
+
+.detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+}
+
+
+.detail-icon {
+    width: 28px;
+    flex-shrink: 0;
+
+    font-size: 1rem;
+}
+
+
+.detail strong {
+    display: block;
+
+    font-size: 0.75rem;
+
+    color: #73808a;
+
+    margin-bottom: 1px;
+}
+
+
+.detail p {
+    font-size: 0.88rem;
+
+    color: #28353e;
+}
+
+
+/* =========================================================
+   15. REQUEST BUTTON
+========================================================= */
+
+.request-button {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 15px;
+
+    border: 1px solid #dce8ed;
+
+    border-radius: 9px;
+
+    color: #b91c2c;
+
+    background: #fff;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.request-button:hover {
+    background: #fff5f6;
+
+    border-color: #efb8be;
+}
+
+
+.request-button span {
+    font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   16. HOW IT WORKS
+========================================================= */
+
+.how-it-works {
+    padding: 55px 0;
+
+    background: #edf9ff;
+
+    border-top: 1px solid #dceff6;
+}
+
+
+.how-it-works h2 {
+    font-size: 1.8rem;
+
+    line-height: 1.2;
+
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   17. STEPS
+========================================================= */
+
+.steps {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+.step {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    border: 1px solid #dfeef3;
+}
+
+
+.step-number {
+    display: block;
+
+    color: #c51d2d;
+
+    font-weight: 900;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+
+.step h3 {
+    font-size: 1.05rem;
+
+    margin-bottom: 7px;
+}
+
+
+.step p {
+    font-size: 0.9rem;
+
+    color: #63717b;
+}
+
+
+/* =========================================================
+   18. FOOTER
+========================================================= */
+
+.site-footer {
+    padding: 55px 0 25px;
+    color: #d8e0ea;
+    background: #101828;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+}
+
+.footer-logo .logo-text {
+    color: white;
+}
+
+.footer-brand p {
+    max-width: 300px;
+    margin-top: 12px;
+    color: #98a2b3;
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-links h3 {
+    margin-bottom: 4px;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.footer-links a {
+    color: #98a2b3;
+    font-size: 0.78rem;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #667085;
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   19. TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .request-hero {
+        padding: 75px 0 60px;
+    }
+
+
+    .request-hero p {
+        font-size: 1.05rem;
+    }
+
+
+    .request-card {
+        padding: 24px;
+    }
+
+
+    .request-details {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        column-gap: 25px;
+    }
+
+
+    .steps {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+}
+ /* =========================================================
+   19. LOCATION MATCH */
+.location-match {
+    display: inline-block;
+    margin: 12px 0;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.same-location {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.nearby-location {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+
+/* =========================================================
+   20. DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    .menu-button {
+        display: none;
+    }
+
+
+    .main-nav {
+        position: static;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 5px;
+
+        border: none;
+
+        padding: 0;
+
+    }
+
+
+    .main-nav a {
+        border: none;
+
+        padding: 9px 11px;
+
+        font-size: 0.85rem;
+
+        border-radius: 7px;
+        font-weight: 700;
+    }
+
+
+    .main-nav a:hover {
+        background: #edf8fc;
+    }
+
+
+    .request-hero {
+        padding: 95px 0 80px;
+    }
+
+
+    .request-board {
+        padding: 75px 0;
+    }
+
+
+    .board-header {
+        display: flex;
+
+        align-items: end;
+
+        justify-content: space-between;
+    }
+
+
+    .request-count {
+        margin-top: 0;
+    }
+
+
+    .request-list {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 22px;
+    }
+
+
+    .how-it-works {
+        padding: 80px 0;
+    }
+
+
+    .steps {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .main-nav a {
+        font-size: 16px;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 50px;
+    }
+
+    .footer-bottom {
+        grid-column: 1/-1;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
+
+/* =========================================================
+   21. LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .request-list {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .request-card {
+        padding: 27px;
+    }
+
+}
+
+
+/* =========================================================
+   22. LANDSCAPE PHONE PROTECTION
+========================================================= */
+
+/*
+   Important for LifeLine:
+
+   Landscape phones should NOT suddenly become
+   a tiny desktop layout.
+
+   We keep the same stacked mobile structure.
+*/
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .header-container {
+        min-height: 62px;
+    }
+
+
+    .main-nav {
+        top: 62px;
+
+        max-height: calc(100vh - 62px);
+
+        overflow-y: auto;
+    }
+
+
+    .request-hero {
+        padding: 35px 0;
+    }
+
+
+    .request-hero h1 {
+        font-size: 2rem;
+    }
+
+
+    .request-hero p {
+        font-size: 0.9rem;
+
+        max-width: 700px;
+    }
+
+
+    .request-board {
+        padding: 40px 0;
+    }
+
+
+    /*
+       Keep cards stacked.
+    */
+
+    .request-list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .request-card {
+        width: 100%;
+    }
+
+
+    .how-it-works {
+        padding: 40px 0;
+    }
+
+
+    .steps {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}

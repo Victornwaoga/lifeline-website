@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eaf8ff,
+        #ffffff
+    );
+    color: #17324d;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.auth-brand {
+    width: 100%;
+    max-width: 500px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d71920;
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.auth-brand h1 {
+    font-size: 1.7rem;
+    line-height: 1.1;
+}
+
+.auth-brand p {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: #5c7182;
+}
+
+
+/* =========================================
+   AUTH CARD
+========================================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid #dcebf3;
+    border-radius: 18px;
+
+    padding: 20px;
+
+    box-shadow: 0 12px 35px rgba(25, 72, 105, 0.12);
+}
+
+
+/* =========================================
+   TABS
+========================================= */
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-bottom: 1px solid #dce8ee;
+
+    margin-bottom: 24px;
+}
+
+.auth-tab {
+    border: none;
+    background: transparent;
+
+    padding: 13px 8px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    color: #718492;
+
+    cursor: pointer;
+
+    border-bottom: 3px solid transparent;
+}
+
+.auth-tab.active {
+    color: #d71920;
+    border-bottom-color: #d71920;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+.auth-heading {
+    margin-bottom: 22px;
+}
+
+.auth-heading h2 {
+    font-size: 1.5rem;
+    color: #17324d;
+    margin-bottom: 7px;
+}
+
+.auth-heading p {
+    color: #657987;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    color: #29455b;
+}
+
+.form-group input {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 13px;
+
+    border: 1px solid #cbdde7;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #17324d;
+
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #258bc1;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 139, 193, 0.12);
+}
+
+.form-group input::placeholder {
+    color: #9aabb5;
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 70px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #1675a6;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   ERRORS
+========================================= */
+
+.form-error {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #c5161d;
+
+    font-size: 0.78rem;
+
+    line-height: 1.4;
+}
+
+.form-message {
+    margin-top: 13px;
+
+    text-align: center;
+
+    font-size: 0.88rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+.forgot-password {
+    display: block;
+
+    margin: -3px 0 18px auto;
+
+    border: none;
+    background: transparent;
+
+    color: #1675a6;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   MAIN BUTTON
+========================================= */
+
+.auth-submit {
+    width: 100%;
+
+    min-height: 50px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #d71920;
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.2s ease;
+}
+
+.auth-submit:hover {
+    background: #b9151b;
+}
+
+.auth-submit:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms-group {
+    margin: 5px 0 18px;
+}
+
+.terms-group label {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    color: #596f7e;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.terms-group input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   SWITCH LOGIN / SIGNUP
+========================================= */
+
+.switch-text {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #687d8b;
+
+    font-size: 0.87rem;
+}
+
+.switch-text button {
+    border: none;
+    background: transparent;
+
+    color: #1675a6;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.auth-footer {
+    margin-top: 20px;
+
+    color: #7c8e99;
+
+    font-size: 0.75rem;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   HIDDEN PANELS
+========================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 600px) {
+
+    .auth-container {
+        padding: 40px 25px;
+    }
+
+    .auth-card {
+        padding: 28px;
+    }
+
+    .auth-brand h1 {
+        font-size: 1.9rem;
+    }
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 900px) {
+
+    .auth-container {
+        padding: 50px 30px;
+    }
+
+    .auth-card {
+        max-width: 520px;
+        padding: 32px;
+    }
+
+}
