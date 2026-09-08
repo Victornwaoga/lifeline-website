@@ -1,10 +1,10 @@
 <?php
 
 $host = "localhost";
-$port = "";
+$port = "5432";
 $dbname = "lifeline";
 $user = "postgres";
-$password = "PASSWORD";
+$password = "~!qw@#$%";
 
 $conn = pg_connect(
     "host=$host port=$port dbname=$dbname user=$user password=$password"
