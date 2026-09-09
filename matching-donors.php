@@ -125,38 +125,21 @@ while ($donor = pg_fetch_assoc($donor_result)) {
 
     <div class="header-container">
 
-        <a href="index.php" class="logo">
-
-            <span class="logo-icon"></span>
-
-            <span class="logo-text">
-                LifeLine
-            </span>
-
+        <a href="first-page.php" class="logo">
+            <span class="logo-icon" aria-hidden="true"><span class="logo-drop"><img src="images/blood-bank.svg" alt="LifeLine"></span></span>
+            <span class="logo-text">Life<span>Line</span></span>
         </a>
 
-        <button
-            class="menu-button"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-        >
-
+        <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-
         </button>
 
         <nav
-            class="main-nav"
-            aria-label="Main navigation"
-        >
+            class="main-nav" aria-label="Main navigation">
 
-            <a href="index.php">
-                Home
-            </a>
-
+            <a href="first-page.php">Home</a>
             <a href="find-donor.php">
                 Find a Donor
             </a>
@@ -275,7 +258,7 @@ while ($donor = pg_fetch_assoc($donor_result)) {
                         ) ?>
                     </p>
 
-                </div>
+                </div><br>
 
                 <div class="match-request-location">
                     <strong>Request Location:</strong>
@@ -479,13 +462,11 @@ while ($donor = pg_fetch_assoc($donor_result)) {
 
 
                         <button
-                            class="contact-button"
+                            class="btn-secondary"
                             type="button"
                             data-donor-id="<?= htmlspecialchars(
                                 $donor["id"]
-                            ) ?>"
-                        >
-
+                            ) ?>">
                             View Contact
                             <span>→</span>
 

@@ -50,12 +50,10 @@ $request = pg_fetch_assoc($result);
 
 <body>
 <header class="site-header">
-
     <div class="container header-container">
-
         <a href="first-page.php" class="logo">
-            <span class="logo-icon"></span>
-            <span class="logo-text">LifeLine</span>
+            <span class="logo-icon" aria-hidden="true"><span class="logo-drop"><img src="images/blood-bank.svg" alt="LifeLine"></span></span>
+            <span class="logo-text">Life<span>Line</span></span>
         </a>
 
         <button class="menu-button" type="button">
@@ -75,9 +73,9 @@ $request = pg_fetch_assoc($result);
 </header>
 
 <main>
-<section class="request-details-section">
-    <div class="container">
-        <a href="urgent-requests.php">← Back to Urgent Requests</a>
+<section class="container hero-container">
+    <div class="hero-content">
+        <a class="hero-actions" href="urgent-requests.php">← Back to Urgent Requests</a>
         <div class="request-details-card">
             <span class="section-label"><?= htmlspecialchars(strtoupper($request["urgency"])) ?></span>
             <h1><?= htmlspecialchars($request["blood_type"]) ?>Blood Needed</h1>
@@ -89,7 +87,6 @@ $request = pg_fetch_assoc($result);
 
 
             <hr>
-
 
             <h2>Request Information</h2>
 

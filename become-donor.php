@@ -14,7 +14,7 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="first-page.php" class="logo" aria-label="LifeLine Home">
-                <span class="logo-icon"><span class="logo-drop"></span></span>
+                <span class="logo-icon"><span class="logo-drop"></span><img src="images/blood-bank.svg" alt=""></span>
                 <span class="logo-text">Life<span>Line</span></span>
             </a>
 
@@ -226,7 +226,7 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <a href="index.php" class="logo footer-logo">
-                    <!-- <span class="logo-icon"><span class="logo-drop"><img src="images/blood-bank.svg" alt="LifeLine"></span></span> -->
+                    <span class="logo-icon"><span class="logo-drop"></span><img src="images/blood-bank.svg" alt="LifeLine"></span>
                     <span class="logo-text">Life<span>Line</span></span>
                 </a>
                 <p>Blood Donation & Emergency Response Network.</p>

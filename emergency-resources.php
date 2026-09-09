@@ -49,8 +49,8 @@ $emergencyNumberResult = pg_query($conn, "
     <header class="site-header">
         <div class="header-container">
             <a href="first-page.php" class="logo" aria-label="LifeLine Home">
-                <span class="logo-icon"></span>
-                <span class="logo-text">LifeLine</span>
+                <span class="logo-icon"><img src="images/blood-bank.svg" alt=""></span>
+                <span class="logo-text">Life<span>Line</span></span>
             </a>
 
             <button type="button" class="menu-button" aria-label="Open navigation menu" aria-expanded="false"
@@ -275,23 +275,22 @@ $emergencyNumberResult = pg_query($conn, "
         <section class="emergency-numbers" id="emergency-numbers">
             <div class="container">
                 <?php if (pg_num_rows($emergencyNumberResult) > 0): ?>
+                    <?php while ($emergency = pg_fetch_assoc($emergencyNumberResult)): ?>
 
-    <?php while ($emergency = pg_fetch_assoc($emergencyNumberResult)): ?>
+                    <div class="emergency-number-card">
+                      <h3><?= htmlspecialchars($emergency['name']) ?></h3><br>
+                       <p><?= htmlspecialchars($emergency['description']) ?></p><br>
+                       <a href="tel:<?= htmlspecialchars($emergency['phone']) ?>" class="call-button">
+                       📞 Call <?= htmlspecialchars($emergency['phone']) ?></a>
+                    </div>
 
-        <div class="emergency-number-card">
-            <h3><?= htmlspecialchars($emergency['name']) ?></h3>
-            <p><?= htmlspecialchars($emergency['description']) ?></p>
-            <a href="tel:<?= htmlspecialchars($emergency['phone']) ?>" class="call-button">
-                📞 Call <?= htmlspecialchars($emergency['phone']) ?></a>
-        </div>
+                <?php endwhile; ?>
 
-    <?php endwhile; ?>
+                <?php else: ?>
 
-<?php else: ?>
+                   <p>No emergency numbers are currently available.</p>
 
-    <p>No emergency numbers are currently available.</p>
-
-<?php endif; ?>
+              <?php endif; ?>
             </div>
         </section>
     </main>
@@ -301,8 +300,8 @@ $emergencyNumberResult = pg_query($conn, "
             <div class="footer-main">
                 <div class="footer-brand">
                     <a href="index.php" class="footer-logo">
-                        <span></span>
-                        <strong>LifeLine</strong>
+                        <span class="logo-icon"><span class="logo-drop"></span><img src="images/blood-bank.svg" alt=""></span>
+                        <span class="logo-text">Life<span>Line</span></span>
                     </a>
                     <p>Blood Donation & Emergency Response Network.</p>
                 </div>

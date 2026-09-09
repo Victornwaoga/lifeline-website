@@ -119,16 +119,11 @@ main {
     height: 42px;
     display: grid;
     place-items: center;
-    background: var(--red);
-    border-radius: 50% 50% 50% 10%;
-    transform: rotate(-45deg);
-    box-shadow: 0 7px 18px rgba(200, 29, 37, 0.22);
 }
 
 .logo-drop {
     color: white;
     font-size: 17px;
-    transform: rotate(45deg);
 }
 
 .logo-text {
@@ -686,8 +681,6 @@ main {
 
     border-radius: 20px;
 
-    background: #edf8fd;
-
     color: #35606e;
 
     font-size: 0.8rem;
@@ -704,6 +697,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    padding: 0 25px;
 }
 
 
@@ -898,6 +892,53 @@ main {
     color: #28353e;
 }
 
+.directory-notice {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 28px;
+    padding: 15px;
+
+    background: #f7fcff;
+    border: 1px solid #dcecf2;
+    border-left: 4px solid #8bc9dc;
+    border-radius: 10px;
+
+    color: #53656e;
+    box-sizing: border-box;
+}
+
+/* Information icon */
+.directory-notice > span {
+    flex-shrink: 0;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf7ff;
+    color: #28758c;
+
+    border-radius: 50%;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Notice text */
+.directory-notice p {
+    margin: 0;
+
+    font-size: 0.78rem;
+    line-height: 1.55;
+
+    color: #53656e;
+}
 
 /* =========================================================
    15. REQUEST BUTTON
@@ -1331,6 +1372,23 @@ main {
         min-width: 180px;
     }
 
+    .directory-notice {
+        gap: 12px;
+        padding: 18px 20px;
+    }
+
+    .directory-notice > span {
+        width: 28px;
+        height: 28px;
+
+        font-size: 1rem;
+    }
+
+    .directory-notice p {
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
     .stats-grid {
         grid-template-columns:
             repeat(2, 1fr);
@@ -1471,6 +1529,15 @@ main {
         grid-column: 1/-1;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+     .directory-notice {
+        margin-top: 35px;
+        padding: 20px 22px;
+    }
+
+    .directory-notice p {
+        font-size: 0.85rem;
     }
 }
 

@@ -41,8 +41,8 @@ $active_count = pg_num_rows($result);
    <header class="site-header">
    <div class="header-container">
      <a href="first-page.php" class="logo">
-        <span class="logo-icon"></span>
-        <span class="logo-text">LifeLine</span>
+        <span class="logo-icon"><img src="images/blood-bank.svg" alt=""></span>
+        <span class="logo-text">Life<span>Line</span></span>
      </a>
 
      <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false">

@@ -143,16 +143,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eaf7ff;
-    border-radius: 50%;
-    font-size: 21px;
 }
 
 .logo-text {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: #b91c2c;
-    letter-spacing: -0.5px;
+    color: var(--navy);
+}
+
+.logo-text span {
+    color: var(--red);
 }
 
 .menu-button {
@@ -273,7 +271,7 @@ main {
 .resources-hero h1 {
     max-width: 700px;
     margin-bottom: 18px;
-    font-size: clamp(2.1rem, 9vw, 4rem);
+    font-size: clamp(2.55rem, 11vw, 5.5rem);
     line-height: 1.08;
     letter-spacing: -1.5px;
 }
@@ -1023,41 +1021,28 @@ main {
     margin-bottom: 0;
 }
 
-
-/* =========================================================
-   26. FOOTER
-========================================================= */
-
+/* 26. FOOTER */
 .site-footer {
     padding: 35px 0;
-
     background: #101c23;
-
     color: #dce6eb;
 }
 
-
 .footer-main {
     display: flex;
-
     flex-direction: column;
-
     gap: 25px;
 }
 
-
 .footer-logo {
     display: inline-flex;
-
     align-items: center;
-
     gap: 8px;
-
     margin-bottom: 8px;
 }
 
-
 .footer-logo span {
+    font-weight: bold;
     font-size: 1.4rem;
 }
 
@@ -1066,15 +1051,11 @@ main {
     font-size: 1.2rem;
 }
 
-
 .footer-brand p {
-    max-width: 350px;
-
+    max-width: 300px;
     color: #a9bac2;
-
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
-
 
 .footer-links {
     display: grid;
@@ -1113,7 +1094,6 @@ main {
     font-size: 0.72rem;
 }
 
-
 /* .footer-bottom p {
     color: #84969f;
 
@@ -1121,16 +1101,13 @@ main {
 } */
 
 
-/* =========================================================
-   27. TABLET
-========================================================= */
+/* 27. TABLET */
 
 @media (min-width: 600px) {
 
     .resources-hero {
         padding: 75px 0 60px;
     }
-
 
     .resources-hero > .container > p {
         font-size: 1.05rem;

@@ -117,7 +117,6 @@ main {
     width: min(92%, 1100px);
     margin: 0 auto;
     min-height: 70px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -138,23 +137,25 @@ main {
 .logo-icon {
     width: 40px;
     height: 40px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #eaf7ff;
     border-radius: 50%;
-
     font-size: 21px;
 }
-
 
 .logo-text {
     font-size: 1.35rem;
     font-weight: 800;
-    color: #b91c2c;
     letter-spacing: -0.5px;
+}
+
+.logo-text {
+    color: var(--navy);
+}
+
+.logo-text span {
+    color: var(--red);
 }
 
 
@@ -302,7 +303,7 @@ main {
 
 
 .request-hero h1 {
-    font-size: clamp(2rem, 9vw, 3.8rem);
+    font-size: clamp(2.55rem, 11vw, 5.5rem);
 
     line-height: 1.08;
 
@@ -980,9 +981,7 @@ main {
 }
 
 
-/* =========================================================
-   21. LARGE DESKTOP
-========================================================= */
+/* LARGE DESKTOP */
 
 @media (min-width: 1200px) {
 
