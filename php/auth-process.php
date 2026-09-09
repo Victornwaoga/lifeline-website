@@ -7,9 +7,7 @@ require_once __DIR__ . "/db.php";
 header("Content-Type: application/json");
 
 
-/* =========================================
-   ONLY POST REQUESTS
-========================================= */
+/* ONLY POST REQUESTS */
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
@@ -22,16 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 
-/* =========================================
-   GET ACTION
-========================================= */
+/* GET ACTION */
 
 $action = $_POST["action"] ?? "";
 
 
-/* =========================================
-   LOGIN
-========================================= */
+/* LOGIN */
 
 if ($action === "login") {
 
@@ -110,9 +104,7 @@ if ($action === "login") {
     }
 
 
-    /* =====================================
-       CREATE LOGIN SESSION
-    ===================================== */
+    /* CREATE LOGIN SESSION */
 
     $_SESSION["user_id"] =
         $user["id"];
@@ -143,9 +135,7 @@ if ($action === "login") {
 }
 
 
-/* =========================================
-   UNKNOWN ACTION
-========================================= */
+/* UNKNOWN ACTION */
 
 echo json_encode([
     "success" => false,

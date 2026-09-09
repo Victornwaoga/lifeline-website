@@ -7,9 +7,7 @@ require_once __DIR__ . "/db.php";
 header("Content-Type: application/json");
 
 
-/* =========================================
-   ONLY ALLOW POST REQUESTS
-========================================= */
+/* ONLY ALLOW POST REQUESTS */
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
@@ -22,17 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 
-/* =========================================
-   GET FORM DATA
-========================================= */
+/* GET FORM DATA */
 
 $identifier = trim($_POST["identifier"] ?? "");
 $password = $_POST["password"] ?? "";
 
 
-/* =========================================
-   VALIDATION
-========================================= */
+/*  VALIDATION */
 
 if ($identifier === "" || $password === "") {
 
@@ -45,9 +39,7 @@ if ($identifier === "" || $password === "") {
 }
 
 
-/* =========================================
-   FIND USER
-========================================= */
+/* FIND USER */
 
 $result = pg_query_params(
     $conn,
@@ -70,9 +62,7 @@ if (!$result) {
 }
 
 
-/* =========================================
-   USER NOT FOUND
-========================================= */
+/* USER NOT FOUND */
 
 if (pg_num_rows($result) === 0) {
 
@@ -85,16 +75,12 @@ if (pg_num_rows($result) === 0) {
 }
 
 
-/* =========================================
-   GET USER
-========================================= */
+/* GET USER */
 
 $user = pg_fetch_assoc($result);
 
 
-/* =========================================
-   CHECK PASSWORD
-========================================= */
+/* CHECK PASSWORD */
 
 if (!password_verify($password, $user["password_hash"])) {
 
@@ -107,9 +93,7 @@ if (!password_verify($password, $user["password_hash"])) {
 }
 
 
-/* =========================================
-   CREATE SESSION
-========================================= */
+/* CREATE SESSION */
 
 session_regenerate_id(true);
 
@@ -118,9 +102,7 @@ $_SESSION["user_name"] = $user["name"];
 $_SESSION["user_email"] = $user["email"];
 
 
-/* =========================================
-   SUCCESS
-========================================= */
+/* SUCCESS */
 
 echo json_encode([
 
