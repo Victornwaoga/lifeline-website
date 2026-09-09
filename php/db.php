@@ -20,7 +20,7 @@ if (getenv("DATABASE_URL")) {
     $port = "5432";
     $dbname = "lifeline";
     $user = "postgres";
-    $password = "pass";
+    $password = "~!qw@#$%";
 }
 
 $conn = pg_connect(
