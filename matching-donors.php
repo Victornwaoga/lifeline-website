@@ -2,6 +2,12 @@
 
 session_start();
 
+if (!isset($_SESSION["user_id"])) {
+    header("Location: index.php");
+    exit;
+}
+
+
 require_once __DIR__ . "/php/db.php";
 
 $request_id = $_GET["request_id"] ?? "";

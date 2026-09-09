@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: index.php");
+    exit;
+}
+
 require_once __DIR__ . "/php/db.php";
 
 $token = trim($_GET["token"] ?? "");

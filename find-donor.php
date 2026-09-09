@@ -1,5 +1,11 @@
 <?php 
-    session_start(); require_once __DIR__ . "/php/db.php"; 
+    session_start(); require_once __DIR__ . "/php/db.php";
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: index.php");
+    exit;
+}
+
     /* Get available donors from PostgreSQL. */ 
     $query = " SELECT id, 
          full_name, 
@@ -8,6 +14,8 @@
          location, 
          available FROM donors WHERE available = TRUE ORDER BY id DESC "; 
     $result = pg_query($conn, $query); 
+
+
 ?>
 
 <!DOCTYPE html>
