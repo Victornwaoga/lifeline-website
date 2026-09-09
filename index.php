@@ -11,7 +11,7 @@
 <body>
     <main class="auth-container">
         <div class="auth-brand">
-            <div class="brand-icon">+</div>
+            <div class=""></div>
             <div>
                 <h1>LifeLine</h1>
                 <p>Blood Donation & Emergency Response</p>
