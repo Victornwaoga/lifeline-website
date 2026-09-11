@@ -2,7 +2,7 @@
   session_start();
 
   if (!isset($_SESSION["user_id"])) {
-    header("Location: index.php");
+    header("Location: log.php");
     exit;
   }
 
@@ -129,8 +129,8 @@
                             <option value="A-"  class="blood">A-</option>
                             <option value="B+"  class="blood">B+</option>
                             <option value="B-"  class="blood">B-</option>
-                            <option value="AB+"  class="blood">AB+</option>
-                            <option value="AB-"  class="blood">AB-</option>
+                            <option value="AB+" class="blood">AB+</option>
+                            <option value="AB-" class="blood">AB-</option>
                             <option value="O+"  class="blood">O+</option>
                             <option value="O-"  class="blood">O-</option>
                         </select>

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: index.php");
+    header("Location: log.php");
     exit;
 }
 
@@ -32,6 +32,7 @@ if (!$result) {
 
 $active_count = pg_num_rows($result);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

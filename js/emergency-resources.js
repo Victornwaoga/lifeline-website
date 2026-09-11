@@ -499,6 +499,8 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+
+
     /* =====================================================
        9. CALL BUTTON SAFETY
        
@@ -573,4 +575,30 @@ document.addEventListener("DOMContentLoaded", function () {
         "LifeLine Emergency Resources page loaded successfully."
     );
 
+    const hospitals = document.querySelectorAll(".hospital-card");
+    const loadMoreButton = document.getElementById("loadMoreHospitals");
+    const loadMoreContainer = document.getElementById("hospitalLoadMoreContainer");
+
+    let visibleCount = 6;
+
+    function showHospitals() {
+
+        hospitals.forEach((hospital, index) => {
+            hospital.style.display = index < visibleCount ? "" : "none";
+        });
+
+        if (visibleCount >= hospitals.length) {
+            loadMoreContainer.style.display = "none";
+        }
+    }
+
+    showHospitals();
+
+    loadMoreButton.addEventListener("click", function () {
+        visibleCount += 6;
+        showHospitals();
+    });
+
 });
+
+    

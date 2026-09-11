@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: index.php");
+    header("Location: log.php");
     exit;
 }
 
@@ -155,24 +155,28 @@ $emergencyNumberResult = pg_query($conn, "
                 <div class="resource-list" id="hospitalList">
                     <?php if (pg_num_rows($hospitalResult) > 0): ?>
 
-                    <?php while ($hospital = pg_fetch_assoc($hospitalResult)): ?>
+                    <?php $hospitalCount = 0;
 
-                     <article class="resource-card" data-name="<?= htmlspecialchars($hospital['name']) ?>" data-location="<?= htmlspecialchars($hospital['location']) ?>">
+                    while ($hospital = pg_fetch_assoc($hospitalResult)): $hospitalCount++;?>
 
-                      <div class="resource-image">
+                    <article class="resource-card hospital-card" data-hospital-index="<?= $hospitalCount ?>"
+                            data-name="<?= htmlspecialchars($hospital['name']) ?>"
+                            data-location="<?= htmlspecialchars($hospital['location']) ?>">
+
+                    <div class="resource-image">
                     <?php if (!empty($hospital['image_url'])): ?>
 
                     <img src="<?= htmlspecialchars($hospital['image_url']) ?>" alt="<?= htmlspecialchars($hospital['name']) ?>">
                      <?php else: ?>
 
-                    <div class="image-placeholder"></div>
+                    <img src="images/hospitals/aefutha3.jpg" alt="Hospital">
 
                    <?php endif; ?>
                 </div>
 
                 <div class="resource-content">
                 <h3><?= htmlspecialchars($hospital['name']) ?></h3>
-                <p class="resource-location">Image Goes Here<?= htmlspecialchars($hospital['location']) ?></p>
+                <p class="resource-location"><?= htmlspecialchars($hospital['location']) ?></p>
                 <p> <?= htmlspecialchars($hospital['description']) ?></p>
                 <div class="resource-actions">
                     <?php if (!empty($hospital['phone'])): ?>
@@ -194,6 +198,9 @@ $emergencyNumberResult = pg_query($conn, "
     <?php endif; ?>
 
                 </div>
+                <div class="load-more-container" id="hospitalLoadMoreContainer">
+                   <button type="button" class="load-more-button" id="loadMoreHospitals">Load More Hospitals</button>
+                </div>
             </div>
         </section>
 
@@ -209,7 +216,9 @@ $emergencyNumberResult = pg_query($conn, "
                                    <?php if (!empty($bloodBank['image_url'])): ?>
                                        <img src="<?= htmlspecialchars($bloodBank['image_url']) ?>" alt="<?= htmlspecialchars($bloodBank['name']) ?>">
                                    <?php else: ?>
-                                       <div class="image-placeholder"></div>
+                                       <img src="images/blood-banks/a_blood-bank.jpg"
+                                            alt="Blood bank">
+
                                    <?php endif; ?>
 
                                 </div>
@@ -249,7 +258,8 @@ $emergencyNumberResult = pg_query($conn, "
                               <?php if (!empty($ambulance['image_url'])): ?>
                               <img src="<?= htmlspecialchars($ambulance['image_url']) ?>" alt="<?= htmlspecialchars($ambulance['name']) ?>">
                               <?php else: ?>
-                             <div class="image-placeholder">Ambulance Image</div>
+                             <img src="images/ambulances/ebonyi-ambulance.jpg"
+                                  alt="Ambulance service">
                               <?php endif; ?>
                            </div>
 

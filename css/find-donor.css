@@ -61,7 +61,7 @@ button {
 }
 
 main {
-    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-dark) 50%, black 75%, var(--blue-dark) 100%);
+    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-light) 50%, var(--red-dark) 75%, var(--blue-dark) 100%);
     background-size: 300% 300%;
     animation: medicalBackground 14s ease-in-out infinite;
 }

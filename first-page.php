@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: index.php");
+    header("Location: log.php");
     exit;
 }
 
@@ -119,7 +119,7 @@ $urgent_count = (int) $urgent_data['total'];
 
                     <!-- The Floating Emergency Card -->
                     <div class="floating-card">
-                        <span class="floating-icon">&#43;</span>
+                        <span class="floating-icon"><img src="images/blood-bank.svg" alt=""></span>
                         <div>
                             <strong>Emergency Response</strong>
                             <small></small>

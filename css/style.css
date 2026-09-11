@@ -71,7 +71,7 @@ button {
 }
 
 main {
-    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-dark) 50%, black 75%, var(--blue-dark) 100%);
+    background: linear-gradient(120deg, #ffffff 0%, #fffdff 25%, var(--red-light) 50%, var(--red-dark) 75%, var(--blue-dark) 100%);
     background-size: 300% 300%;
     animation: medicalBackground 14s ease-in-out infinite;
 }
@@ -380,22 +380,26 @@ main {
     position: relative;
 }
 
-.image-placeholder {
-    min-height: 280px;
+.image-placeholder p img {
+    min-height: 330px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(145deg, #f0f9ff, #ffffff);
     border-radius: var(--radius-lg);
     color: #52829a;
     overflow: hidden;
 }
 
+.image-placeholder img,
+.image-placeholder {
+    border-radius: var(--radius-lg);
+}
+
 .hero-image-placeholder {
     min-height: 330px;
-    background: radial-gradient(circle at center, rgba(200, 29, 37, 0.08), transparent 45%), #f5fbff;
+    /* background: radial-gradient(circle at center, rgba(200, 29, 37, 0.08), transparent 45%), #f5fbff; */
 }
 
 .placeholder-icon {
@@ -435,13 +439,12 @@ main {
     box-shadow: var(--shadow);
 }
 
-.floating-icon {
+.floating-icon img {
     width: 35px;
     height: 35px;
     display: grid;
     place-items: center;
     color: white;
-    background: var(--red);
     border-radius: 9px;
     font-size: 1.2rem;
     font-weight: 900;
