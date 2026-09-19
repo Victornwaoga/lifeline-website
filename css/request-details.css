@@ -1,0 +1,639 @@
+/* ========================================================= LIFE LINE — REQUEST DETAILS PAGE ========================================================= */ /* ========================================================= RESET ========================================================= */ 
+*, 
+*::before, 
+*::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+} 
+
+html { 
+    scroll-behavior: smooth; 
+} 
+
+body { 
+    min-width: 0; 
+    width: 100%; 
+    overflow-x: hidden; 
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+    color: #172033; 
+    background: #ffffff; 
+    line-height: 1.5; 
+} 
+
+img { 
+    display: block; 
+    max-width: 100%; 
+    height: auto; 
+} 
+
+a { 
+    color: inherit; 
+    text-decoration: none; 
+} 
+
+button, input, select, textarea { 
+    font: inherit; 
+} 
+
+button { 
+    cursor: pointer; 
+} 
+
+/* ========================================================= VARIABLES ========================================================= */ 
+:root { 
+    --red: #c81d25; 
+    --red-dark: #9f151c; 
+    --red-light: #fff1f2; 
+    --blue: #1d4ed8; 
+    --blue-dark: #173f9f; 
+    --blue-light: #eff6ff; 
+    --navy: #101828; 
+    --text: #172033; 
+    --muted: #667085; 
+    --white: #ffffff; 
+    --border: #e4e7ec; 
+    --surface: #f8fafc; 
+    --shadow-sm: 0 4px 16px rgba(16, 24, 40, 0.06); 
+    --shadow: 0 12px 35px rgba(16, 24, 40, 0.08); 
+    --shadow-lg: 0 20px 55px rgba(16, 24, 40, 0.12); 
+    --radius-sm: 10px; 
+    --radius: 18px; 
+    --radius-lg: 28px; 
+    --container: 1200px; 
+} 
+
+/* ========================================================= CONTAINER ========================================================= */ 
+
+.container { 
+    width: min(calc(100% - 32px), var(--container)); 
+    margin-inline: auto; 
+} /* ========================================================= HEADER ========================================================= */ 
+
+.site-header { 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    background: rgba(255, 255, 255, 0.94); 
+    backdrop-filter: blur(14px); 
+    -webkit-backdrop-filter: blur(14px); 
+    border-bottom: 1px solid rgba(228, 231, 236, 0.8); 
+} 
+
+.header-container { 
+    min-height: 72px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+} 
+
+/* ========================================================= LOGO ========================================================= */ 
+.logo { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 9px; 
+    font-weight: 800; 
+    font-size: 1.3rem; 
+    letter-spacing: -0.04em; 
+} 
+
+.logo-icon { 
+    width: 38px; 
+    height: 42px; 
+    display: grid; 
+    place-items: center; 
+} 
+
+.logo-drop { 
+    color: white; 
+    font-size: 17px; 
+} 
+
+.logo-icon img { 
+    width: 38px; 
+    height: 42px; 
+} 
+
+.logo-text { 
+    color: var(--navy); 
+} 
+
+.logo-text span { 
+    color: var(--red); 
+} 
+
+/* ========================================================= HAMBURGER MENU ========================================================= */ 
+.menu-button { 
+    width: 44px; 
+    height: 44px; 
+    border: none; 
+    background: transparent; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 5px; 
+} 
+
+.menu-button span { 
+    width: 25px; 
+    height: 3px; 
+    border-radius: 5px; 
+    background: #17212b; 
+    transition: 0.25s ease; 
+} 
+
+/* Hamburger animation */ 
+
+.menu-button.menu-open span:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg); 
+} 
+
+.menu-button.menu-open span:nth-child(2) { 
+    opacity: 0; 
+} 
+
+.menu-button.menu-open span:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg); 
+} 
+
+/* ========================================================= NAVIGATION ========================================================= */ 
+.main-nav { 
+    display: none; 
+} 
+
+.main-nav.nav-open { 
+    display: flex; 
+    position: absolute; 
+    top: 72px; 
+    left: 0; 
+    right: 0; 
+    flex-direction: column; 
+    padding: 15px 16px 20px; 
+    background: rgba(255, 255, 255, 0.98); 
+    border-bottom: 1px solid var(--border); 
+    box-shadow: var(--shadow); gap: 5px; 
+} 
+
+.main-nav.nav-open a { 
+    width: 100%; 
+    padding: 14px 15px; 
+    color: var(--navy); 
+    border-radius: 10px; 
+    font-weight: 600; 
+    transition: color 0.2s ease, background 0.2s ease; 
+} 
+
+.main-nav.nav-open a:hover, 
+.main-nav.nav-open a.active { 
+    color: var(--red); 
+    background: var(--red-light); 
+} 
+
+/* ========================================================= MAIN PAGE BACKGROUND ========================================================= */ 
+main { 
+    position: relative; 
+    overflow: hidden; 
+    min-height: calc(100vh - 72px); 
+    background: radial-gradient( 
+        circle at 10% 15%, rgba(200, 29, 37, 0.12), 
+        transparent 32% ), 
+        radial-gradient( circle at 90% 20%, rgba(29, 78, 216, 0.10), transparent 32% ), 
+        radial-gradient( circle at 50% 90%, rgba(200, 29, 37, 0.08), transparent 38% ), 
+        linear-gradient( 135deg, #ffffff 0%, #fff8f8 35%, #f8fbff 65%, #eef5ff 100% ); 
+    background-size: 140% 140%; 
+    animation: medicalBackground 16s ease-in-out infinite alternate; 
+} 
+
+@keyframes medicalBackground { 
+    0% { 
+        background-position: 0% 0%; 
+    } 
+    
+    50% { 
+        background-position: 100% 50%; 
+    } 
+    
+    100% { 
+        background-position: 0% 100%; 
+    } 
+} 
+
+/* ========================================================= FLOATING BACKGROUND GLOWS ========================================================= */ 
+
+main::before { 
+    content: ""; 
+    position: absolute; 
+    width: 420px; 
+    height: 420px; 
+    top: 8%; 
+    right: -180px; 
+    background: rgba(200, 29, 37, 0.07); 
+    border-radius: 50%; 
+    filter: blur(70px); 
+    animation: floatingGlow 10s ease-in-out infinite alternate; 
+    pointer-events: none; 
+} 
+
+main::after { 
+    content: ""; 
+    position: absolute; 
+    width: 360px; 
+    height: 360px; 
+    bottom: 5%; 
+    left: -160px; 
+    background: rgba(29, 78, 216, 0.07); 
+    border-radius: 50%; 
+    filter: blur(70px); 
+    animation: floatingGlow 12s ease-in-out infinite alternate-reverse; 
+    pointer-events: none; 
+} 
+
+@keyframes floatingGlow { 
+    from { 
+        transform: translateY(-20px) scale(0.95); 
+    } 
+    
+    to { 
+        transform: translateY(25px) scale(1.08); 
+    } 
+} 
+
+/* Keep page content above background effects */ 
+
+main > * { 
+    position: relative; 
+    z-index: 1; 
+} 
+
+/* ========================================================= PAGE CONTAINER ========================================================= */ 
+.hero-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    padding-top: 38px; 
+    padding-bottom: 65px; 
+} 
+
+.hero-content { 
+    width: 100%; 
+    max-width: 900px; 
+    margin-inline: auto; 
+} 
+
+/* ========================================================= BACK TO REQUESTS ========================================================= */ 
+.hero-content > .hero-actions { 
+    display: inline-flex; 
+    align-items: center; 
+    margin: 0; 
+    padding: 9px 0; 
+    color: var(--red); 
+    font-size: 0.9rem; 
+    font-weight: 750; 
+    transition: color 0.2s ease, 
+    transform 0.2s ease; 
+} 
+
+.hero-content > .hero-actions:hover { 
+    color: var(--red-dark); 
+    transform: translateX(-4px); 
+} 
+
+/* ========================================================= REQUEST DETAILS CARD ========================================================= */ 
+.request-details-card { 
+    width: 100%; 
+    margin-top: 15px; 
+    padding: 30px 22px; 
+    position: relative; 
+    background: rgba(255, 255, 255, 0.97); 
+    border: 1px solid rgba(228, 231, 236, 0.9); 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow-lg); 
+    overflow: hidden; 
+    animation: cardAppear 0.7s ease-out both; 
+} 
+
+@keyframes cardAppear { 
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+    
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+/* ========================================================= CARD TOP ACCENT ========================================================= */ 
+.request-details-card::before { 
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 6px; 
+    background: linear-gradient( 90deg, var(--red), #ef4444, var(--blue) ); 
+} 
+
+/* ========================================================= URGENCY LABEL ========================================================= */ 
+.request-details-card .section-label { 
+    display: inline-block; 
+    margin-top: 6px; 
+    padding: 7px 12px; 
+    color: var(--red); 
+    background: var(--red-light); 
+    border: 1px solid rgba(200, 29, 37, 0.12); 
+    border-radius: 20px; 
+    font-family: inherit; 
+    font-size: 0.72rem; 
+    font-weight: 800; 
+    letter-spacing: 0.08em; 
+    animation: none; 
+} 
+
+/* ========================================================= BLOOD TYPE HEADING ========================================================= */ 
+.request-details-card h1 { 
+    margin-top: 18px; 
+    color: var(--navy); 
+    font-size: clamp(2.2rem, 10vw, 4.5rem); 
+    line-height: 1.03; 
+    letter-spacing: -0.055em; 
+} 
+
+/* ========================================================= UNITS REQUIRED ========================================================= */ 
+.request-details-card > p { 
+    margin-top: 12px; 
+    color: var(--muted); 
+    font-size: 1rem; 
+    line-height: 1.6; 
+}
+
+
+/* ========================================================= DIVIDER ========================================================= */ 
+.request-details-card hr { 
+    height: 1px; 
+    margin: 28px 0; 
+    border: none; 
+    background: var(--border); 
+} 
+
+/* ========================================================= REQUEST INFORMATION HEADING ========================================================= */ 
+.request-details-card h2 { 
+    margin-bottom: 20px; 
+    color: var(--navy); 
+    font-size: 1.4rem; 
+    line-height: 1.2; 
+    letter-spacing: -0.02em; 
+} 
+
+/* ========================================================= INFORMATION BLOCKS ========================================================= */ 
+.request-details-card h2 ~ p { 
+    margin-top: 0;
+    margin-bottom: 14px; 
+    padding: 15px 16px; 
+    background: var(--surface); 
+    border: 1px solid #edf0f4; 
+    border-radius: 12px; 
+    color: var(--text); 
+    font-size: 0.94rem; 
+    line-height: 1.55; 
+    transition: transform 0.2s ease, 
+    border-color 0.2s ease, 
+    box-shadow 0.2s ease; 
+} 
+
+.request-details-card h2 ~ p:hover { 
+    transform: translateY(-2px); 
+    border-color: #d8dee8; 
+    box-shadow: var(--shadow-sm); 
+}
+
+/* ========================================================= INFORMATION LABELS ========================================================= */ 
+.request-details-card p strong { 
+    display: inline-block; 
+    margin-bottom: 4px; 
+    color: var(--navy); 
+    font-size: 0.76rem; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 0.06em; 
+} 
+
+/* ========================================================= ADDITIONAL INFORMATION ========================================================= */ 
+.request-details-card h2 ~ p:last-of-type { 
+    margin-bottom: 0; 
+}
+
+/* ========================================================= ACTION AREA ========================================================= */ 
+.request-actions { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    margin-top: 28px; 
+    padding-top: 24px; 
+    border-top: 1px solid var(--border); 
+} 
+
+/* ========================================================= MATCHING DONORS BUTTON ========================================================= */ 
+.request-button { 
+    width: 100%; 
+    min-height: 54px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 12px; 
+    padding: 14px 20px; 
+    color: var(--white); 
+    background: var(--red); 
+    border-radius: 12px; 
+    font-weight: 800; 
+    text-align: center; 
+    box-shadow: 0 10px 25px rgba(200, 29, 37, 0.20); 
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; 
+} 
+
+.request-button:hover { 
+    background: var(--red-dark); 
+    transform: translateY(-2px); 
+    box-shadow: 0 14px 30px rgba(200, 29, 37, 0.25); 
+} 
+
+.request-button span { 
+    font-size: 1.2rem; 
+    transition: transform 0.2s ease; 
+} 
+
+.request-button:hover span { 
+    transform: translateX(4px); 
+} 
+
+.request-button:active { 
+    transform: translateY(0); 
+} 
+
+/* ========================================================= TABLET ========================================================= */ 
+@media (min-width: 600px) { 
+    .container { 
+        width: min( calc(100% - 48px), var(--container) ); 
+    } 
+    
+    .hero-container { 
+        padding-top: 50px; 
+        padding-bottom: 80px; 
+    } 
+    
+    .request-details-card { 
+        padding: 38px 34px; 
+        margin-top: 18px; 
+    } 
+    
+    .request-details-card h1 { 
+        font-size: clamp( 3rem, 8vw, 4.2rem ); 
+    } 
+    
+    .request-details-card h2 { 
+        font-size: 1.55rem; 
+    } 
+    
+    .request-details-card h2 ~ p { 
+        padding: 17px 19px; 
+        font-size: 0.98rem; 
+    } 
+    
+    .request-actions { 
+        flex-direction: row; 
+        justify-content: flex-end; 
+        align-items: center; 
+    } 
+    
+    .request-button { 
+        width: auto; 
+        min-width: 250px; 
+    } 
+} 
+
+/* ========================================================= DESKTOP NAVIGATION ========================================================= */ 
+@media (min-width: 900px) { 
+    .menu-button { 
+        display: none; 
+    } 
+    
+    .main-nav { 
+        display: flex; 
+        align-items: center; 
+        justify-content: flex-end; 
+        gap: 25px; 
+        margin-left: auto; 
+    } 
+    
+    .main-nav a { 
+        position: relative; 
+        padding: 8px 0; 
+        color: var(--navy); 
+        font-size: 0.95rem; 
+        font-weight: 650; 
+        transition: color 0.2s ease; 
+    } 
+    
+    .main-nav a::after { 
+        content: ""; 
+        position: absolute; 
+        left: 0; 
+        bottom: 0; 
+        width: 0; 
+        height: 2px; 
+        background: var(--red); 
+        transition: width 0.2s ease; 
+    } 
+    
+    .main-nav a:hover, .main-nav a.active { 
+        color: var(--red); 
+    } 
+    
+    .main-nav a:hover::after, 
+    .main-nav a.active::after { 
+        width: 100%; 
+    }
+    
+    .hero-container { 
+        min-height: calc(100vh - 72px); 
+        justify-content: center; 
+        padding-top: 70px; 
+        padding-bottom: 90px; 
+    } 
+    
+    .hero-content { 
+        width: 100%; 
+        max-width: 900px; 
+    } 
+    
+    .request-details-card { 
+        margin-top: 20px; 
+        padding: 45px 50px; 
+        border-radius: var(--radius-lg); 
+    } 
+    
+    .request-details-card h1 { 
+        font-size: clamp( 3.2rem, 5vw, 4.8rem ); 
+    } 
+    
+    .request-details-card > p { 
+        font-size: 1.05rem; 
+    } 
+    
+    .request-details-card h2 { 
+        margin-top: 5px; 
+        font-size: 1.65rem; 
+    } 
+    
+    .request-details-card h2 ~ p { 
+        padding: 18px 20px; 
+        font-size: 1rem; 
+    } 
+    
+    .request-actions { 
+        margin-top: 35px; 
+    } 
+    
+    .request-button { 
+        min-width: 260px; 
+    } 
+} 
+
+/* ========================================================= LARGE DESKTOP ========================================================= */ 
+@media (min-width: 1200px) { 
+    .request-details-card {
+        padding: 50px 55px; 
+    } 
+    
+    .request-details-card h1 { 
+        font-size: 4.5rem; 
+    } 
+} 
+
+/* ========================================================= REDUCED MOTION ========================================================= */ 
+@media (prefers-reduced-motion: reduce) { 
+    html { 
+        scroll-behavior: auto; 
+    } 
+    
+    main { 
+        animation: none; 
+    } 
+    
+    main::before, main::after { 
+        animation: none; 
+    } 
+    
+    .request-details-card { 
+        animation: none; 
+    } 
+    
+    .request-button, 
+    .request-button span, 
+    .hero-content > .hero-actions, 
+    .request-details-card h2 ~ p { 
+        transition: none; 
+    } 
+}
