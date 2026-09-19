@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/db.php";;
+require_once __DIR__ . "/db.php";
 
 header("Content-Type: application/json");
 
@@ -28,6 +28,7 @@ $name = trim($_POST["name"] ?? "");
 $email = trim($_POST["email"] ?? "");
 $phone = trim($_POST["phone"] ?? "");
 $password = $_POST["password"] ?? "";
+$location = trim($_POST["location"] ?? "");
 
 
 /* =========================================
@@ -38,7 +39,8 @@ if (
     $name === "" ||
     $email === "" ||
     $phone === "" ||
-    $password === ""
+    $password === "" ||
+    $location === ""
 ) {
 
     echo json_encode([
@@ -164,16 +166,17 @@ $result = pg_query_params(
     $conn,
 
     "INSERT INTO users
-    (name, email, phone, password_hash)
+    (name, email, phone, password_hash, location)
     VALUES
-    ($1, $2, $3, $4)
-    RETURNING id, name",
+    ($1, $2, $3, $4, $5)
+    RETURNING id, name, location",
 
     [
         $name,
         $email,
         $phone,
-        $passwordHash
+        $passwordHash,
+        $location
     ]
 );
 
@@ -212,7 +215,8 @@ echo json_encode([
 
     "user" => [
         "id" => $user["id"],
-        "name" => $user["name"]
+        "name" => $user["name"],
+        "location" => $user["location"]
     ]
 
 ]);

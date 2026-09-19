@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
-
             const identifier =
                 document.getElementById(
                     "loginIdentifier"
@@ -267,7 +266,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.success) {
 
                     message.textContent =
-                        data.message;
+                        data.message ||
+                        "Login successful.";
+
+                    message.style.color =
+                        "green";
 
 
                     setTimeout(
@@ -279,7 +282,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         },
                         800
                     );
-
                 }
 
 
@@ -292,6 +294,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     message.textContent =
                         data.message ||
                         "Incorrect email/phone or password.";
+
+                    message.style.color =
+                        "red";
                 }
 
             }
@@ -299,12 +304,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             catch (error) {
 
-                console.error(error);
+                console.error(
+                    "Login error:",
+                    error
+                );
 
                 message.textContent =
                     "Unable to connect to the server.";
-            }
 
+                message.style.color =
+                    "red";
+            }
         }
     );
 
@@ -387,7 +397,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-            /* Clear errors */
+            /* =====================================
+               CLEAR OLD MESSAGES
+            ===================================== */
 
             nameError.textContent = "";
             emailError.textContent = "";
@@ -423,7 +435,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const emailPattern =
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
             if (
                 !emailPattern.test(
                     email.value.trim()
@@ -443,7 +454,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const phonePattern =
                 /^[0-9+\-\s()]{7,20}$/;
-
 
             if (
                 !phonePattern.test(
@@ -502,6 +512,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* =====================================
+               STOP IF INVALID
+            ===================================== */
+
             if (!valid) {
                 return;
             }
@@ -514,11 +528,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const formData =
                 new FormData(signupForm);
 
-
             formData.append(
                 "action",
                 "signup"
             );
+
+
+            /* =====================================
+               SUBMIT BUTTON
+            ===================================== */
+
+            const submitButton =
+                signupForm.querySelector(
+                    ".auth-submit"
+                );
+
+            submitButton.disabled = true;
+
+            submitButton.textContent =
+                "Creating Account...";
 
 
             try {
@@ -545,14 +573,26 @@ document.addEventListener("DOMContentLoaded", function () {
                     await response.json();
 
 
+                /* =================================
+                   REGISTRATION SUCCESS
+                ================================= */
+
                 if (data.success) {
 
                     message.textContent =
-                        data.message;
+                        data.message ||
+                        "Account created successfully.";
 
+                    message.style.color =
+                        "green";
+
+
+                    /* Clear form */
 
                     signupForm.reset();
 
+
+                    /* Return to login after 2 seconds */
 
                     setTimeout(
                         function () {
@@ -560,16 +600,23 @@ document.addEventListener("DOMContentLoaded", function () {
                             showLogin();
 
                         },
-                        1500
+                        2000
                     );
-
                 }
+
+
+                /* =================================
+                   REGISTRATION FAILED
+                ================================= */
 
                 else {
 
                     message.textContent =
                         data.message ||
                         "Unable to create account.";
+
+                    message.style.color =
+                        "red";
                 }
 
             }
@@ -577,10 +624,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             catch (error) {
 
-                console.error(error);
+                console.error(
+                    "Signup error:",
+                    error
+                );
 
                 message.textContent =
                     "Unable to connect to the server.";
+
+                message.style.color =
+                    "red";
+            }
+
+
+            finally {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "Create Account";
             }
 
         }
@@ -591,51 +653,100 @@ document.addEventListener("DOMContentLoaded", function () {
        FORGOT PASSWORD
     ========================================= */
 
-    const forgotPassword = document.getElementById("forgotPassword");
+    const forgotPassword =
+        document.getElementById(
+            "forgotPassword"
+        );
+
 
     if (forgotPassword) {
-        forgotPassword.addEventListener("click", async function () {
 
-            const identifier = prompt(
-                "Enter the email address or phone number connected to your LifeLine account:"
-            );
+        forgotPassword.addEventListener(
+            "click",
+            async function () {
 
-            if (!identifier) {
-                return;
-            }
+                const identifier =
+                    prompt(
+                        "Enter the email address or phone number connected to your LifeLine account:"
+                    );
 
-            forgotPassword.disabled = true;
-            forgotPassword.textContent = "Sending...";
 
-            try {
-                const formData = new FormData();
-
-                formData.append("identifier", identifier.trim());
-
-                const response = await fetch("php/request-reset.php", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    alert(data.message);
-                } else {
-                    alert(data.message);
+                if (!identifier) {
+                    return;
                 }
 
-            } catch (error) {
-                console.error("Password reset error:", error);
 
-                alert(
-                    "Something went wrong while requesting the password reset."
-            );
+                forgotPassword.disabled = true;
 
-            } finally {
-                forgotPassword.disabled = false;
-                forgotPassword.textContent = "Forgot password?";
-           }
-        });
-   }
+                forgotPassword.textContent =
+                    "Sending...";
+
+
+                try {
+
+                    const formData =
+                        new FormData();
+
+                    formData.append(
+                        "identifier",
+                        identifier.trim()
+                    );
+
+
+                    const response =
+                        await fetch(
+                            "php/request-reset.php",
+                            {
+                                method: "POST",
+                                body: formData
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (data.success) {
+
+                        alert(
+                            data.message
+                        );
+
+                    } else {
+
+                        alert(
+                            data.message
+                        );
+                    }
+
+                }
+
+
+                catch (error) {
+
+                    console.error(
+                        "Password reset error:",
+                        error
+                    );
+
+                    alert(
+                        "Something went wrong while requesting the password reset."
+                    );
+
+                }
+
+
+                finally {
+
+                    forgotPassword.disabled = false;
+
+                    forgotPassword.textContent =
+                        "Forgot password?";
+                }
+
+            }
+        );
+    }
+
 });

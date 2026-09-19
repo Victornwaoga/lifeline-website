@@ -118,7 +118,10 @@
                     <!-- Confirm Location -->
                     <div class="form-group">
                         <label for="confirmLocation">Location</label>
-                        <input type="text" name="confirmlocation" id="location" required>
+
+                        <input type="text" name="location" id="confirmLocation" placeholder="Enter your location" required>
+
+                        <small id="locationError" class="form-error"></small>
                     </div>
 
                     <!-- Terms -->
