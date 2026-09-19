@@ -452,15 +452,9 @@ while ($donor = pg_fetch_assoc($donor_result)) {
                     <?php endif; ?>
 
 
-                        <button
-                            class="btn-secondary"
-                            type="button"
-                            data-donor-id="<?= htmlspecialchars(
-                                $donor["id"]
-                            ) ?>">
+                        <button class="btn-secondary contact-button" type="button" data-donor-id="<?= htmlspecialchars($donor["id"]) ?>">
                             View Contact
                             <span>→</span>
-
                         </button>
 
                     </article>

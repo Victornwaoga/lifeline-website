@@ -335,6 +335,100 @@
     line-height: 1.6;
 }
 
+.donor-card .btn-secondary {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 18px;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    color: var(--navy);
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.donor-card .btn-secondary:hover {
+    color: #ffffff;
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(200, 29, 37, 0.18);
+}
+
+.donor-card .btn-secondary span {
+    margin-left: auto;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.donor-card .btn-secondary:hover span {
+    transform: translateX(4px);
+}
+
+.donor-card .contact-button {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 18px;
+    padding: 13px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.donor-card .contact-button:hover {
+    color: var(--white);
+    background: var(--red);
+    border-color: var(--red);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(200, 29, 37, 0.18);
+}
+
+.donor-card .contact-button:active {
+    transform: translateY(0);
+}
+
+.donor-card .contact-button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+.donor-card .contact-button span {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+
+.donor-card .contact-button:hover span {
+    transform: translateX(4px);
+}
 
 /* =========================================================
    RESPONSIVE
