@@ -122,6 +122,7 @@ while ($donor = pg_fetch_assoc($donor_result)) {
     <title>Matching Donors | LifeLine</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/details.css">
 
 </head>
 
@@ -270,22 +271,6 @@ while ($donor = pg_fetch_assoc($donor_result)) {
                     <strong>Request Location:</strong>
                     <?= htmlspecialchars($request["location"]) ?>
                 </div>
-
-
-                <div class="detail">
-
-                    <strong>
-                        Location
-                    </strong>
-
-                    <p>
-                        <?= htmlspecialchars(
-                            $request["location"]
-                        ) ?>
-                    </p>
-
-                </div>
-
 
                 <div class="detail">
 
