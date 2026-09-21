@@ -141,16 +141,35 @@ if (!isset($_SESSION["user_id"])) {
                             <span class="error-message" id="phoneError"></span>
                         </div>
                         <div class="form-group">
-                         <label for="location">Location/Area<span class="required">*</span> </label>
-                         <div class="location-status" id="locationStatus" >Location permission is required</div>
-                         <input type="text" name="location" id="location" placeholder="Your area or location">
-                         <input type="hidden" id="latitude" name="latitude" >  
-                         <input type="hidden" id="longitude" name="longitude" >
-                         <button type="button" id="getLocationButton" class="location-button" >Allow Location</button>
-                          <small class="field-help">Location access is required so LifeLine can help identify potential donors 
-                            in your area. Your exact location should not be displayed publicly.</small> 
-                           <span class="error-message" id="locationError"></span>
+                           <label for="location">Location/Area<span class="required">*</span> </label>
+                           <div class="location-status" id="locationStatus" >Location permission is required</div>
+                           <input type="text" name="location" id="location" placeholder="Your area or location">
+                           <input type="hidden" id="latitude" name="latitude" >  
+                           <input type="hidden" id="longitude" name="longitude" >
+
+                        <div class="form-group">
+                            <label for="state">State<span class="required">*</span></label>
+
+                             <select id="state" name="state" required>
+                                <option value="">Select Your State Of Origin</option>
+                            </select>
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="lga">LGA</label>
+
+                            <select id="lga" name="lga" required disabled>
+                                <option value="">Select State First, Then LGA</option>
+                            </select>
+                        </div>
+
+                            <button type="button" id="getLocationButton" class="location-button" >Allow Location</button>
+                            <small class="field-help">Location access is required so LifeLine can help identify potential donors 
+                              in your area. Your exact location should not be displayed publicly.
+                            </small> 
+                            <span class="error-message" id="locationError"></span>
+                        
                             <small class="field-help">Enter your town, city or general area. Do not enter your full home address.</small>
                             <span class="error-message" id="locationError"></span>
                         </div>
@@ -264,5 +283,6 @@ if (!isset($_SESSION["user_id"])) {
     </footer>
 
      <script src="js/become-donor.js"></script>
+     <script src="js/nigeria-lga.js"></script>
 </body>
 </html>

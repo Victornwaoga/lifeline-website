@@ -555,7 +555,7 @@ main {
 }
 
 .submit-button {
-    width: 50%;
+    width: 100%;
     min-height: 57px;
     display: flex;
     align-items: center;
